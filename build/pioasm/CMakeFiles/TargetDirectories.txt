@@ -1,0 +1,3 @@
+C:/pico/projects/macropad/build/pioasm/CMakeFiles/pioasm.dir
+C:/pico/projects/macropad/build/pioasm/CMakeFiles/edit_cache.dir
+C:/pico/projects/macropad/build/pioasm/CMakeFiles/rebuild_cache.dir
