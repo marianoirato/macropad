@@ -30,14 +30,6 @@ uint8_t vscode [keyboard_size][keycode_size] =
     {HID_KEY_CONTROL_LEFT, HID_KEY_W}  //button d
 };
 
-uint8_t prueba [keyboard_size][keycode_size] =
-{
-    {HID_KEY_CONTROL_LEFT, HID_KEY_E}, //button a
-    {HID_KEY_CONTROL_LEFT, HID_KEY_E}, //button b
-    {HID_KEY_CONTROL_LEFT, HID_KEY_E}, //button c
-    {HID_KEY_CONTROL_LEFT, HID_KEY_E}  //button d
-};
-
 
 void keyboard_init()
 {
@@ -124,7 +116,7 @@ uint32_t read_mode()
             {
                 for(int j = 0; j < keycode_size; j++)
                 {
-                    keyboard[i].keycode[j] = prueba[i][j];
+                    keyboard[i].keycode[j] = windows[i][j];
                 }
             }
             break;
