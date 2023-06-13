@@ -5,8 +5,11 @@
 #include "pico/stdlib.h"
 #include "bsp/board.h"
 #include "tusb.h"
+
 #include "keyboard.h"
 #include "usb_descriptors.h"
+
+#include "oled.h"
 
 //--------------------------------------------------------------------+
 // MACRO CONSTANT TYPEDEF PROTYPES
@@ -20,12 +23,15 @@ int main(void)
   board_init();
   tusb_init();
   keyboard_init();
+  setup_gpio();
 
   while (1)
   {
     tud_task(); // tinyusb device task
 
     hid_task();
+
+    display_mode(read_mode()); // display the name of the mode that is used*/
   }
 
   return 0;
@@ -66,11 +72,11 @@ static void send_hid_report(uint8_t report_id, uint8_t btn)
 
       if(btn != 0) // send button pressed report
       {
-          for(int i = 0; i < 6; i++)
-            keycode[i] = set_keycode(btn,i);
-          
-          tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
-          has_keyboard_key = true;        
+        for(uint8_t i = 0; i < 6; i++)
+          keycode[i] = set_keycode(btn,i);
+        
+        tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
+        has_keyboard_key = true;        
       }
       else // send empty key report if previously has key pressed
       {
@@ -126,7 +132,7 @@ void hid_task(void)
 // Invoked when sent REPORT successfully to host
 // Application can use this to send the next report
 // Note: For composite reports, report[0] is report ID
-void tud_hid_report_complete_cb(uint8_t instance, uint8_t const* report, uint8_t len)
+void tud_hid_report_complete_cb(uint8_t instance, uint8_t const* report, uint16_t len)
 {
   (void) instance;
   (void) len;

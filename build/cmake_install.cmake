@@ -1,4 +1,4 @@
-# Install script for directory: C:/pico/projects/macropad
+# Install script for directory: C:/Users/Nano/Documents/Pico/projects/macropad
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Program Files/Raspberry Pi/Pico SDK v1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/pico/projects/macropad/build/pico-sdk/cmake_install.cmake")
+  include("C:/Users/Nano/Documents/Pico/projects/macropad/build/pico-sdk/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/pico/projects/macropad/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Nano/Documents/Pico/projects/macropad/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
